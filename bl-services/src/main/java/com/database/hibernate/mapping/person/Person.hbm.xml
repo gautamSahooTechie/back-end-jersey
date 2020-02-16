@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.database.hibernate.mapping.person.Person" table="person">
+        <id name="personID" type="int">
+            <column name="person_id" />
+            <generator class="increment" />
+        </id>
+        <property name="firstName" type="java.lang.String">
+            <column name="first_name" />
+        </property>
+        <property name="lastName" type="java.lang.String">
+            <column name="last_name" />
+        </property>
+        <property name="age" type="int">
+            <column name="age" />
+        </property>
+        <property name="color" type="java.lang.String">
+            <column name="color" />
+        </property>
+        <set name="hobbies" table="hobbies" 
+				lazy="true" 
+				fetch="select"
+				cascade="all">
+            <key>
+                <column name="person_id"/>
+            </key>
+            
+            <one-to-many class="com.database.hibernate.mapping.hobby.Hobby" />
+        </set>
+    </class>
+</hibernate-mapping>

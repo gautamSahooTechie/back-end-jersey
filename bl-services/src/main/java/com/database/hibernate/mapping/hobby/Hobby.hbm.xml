@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.database.hibernate.mapping.hobby.Hobby" table="hobbies">
+        <id name="hobbyID" type="int">
+            <column name="hobby_id" />
+            <generator class="increment" />
+        </id>
+        <property name="hobbyName" type="java.lang.String">
+            <column name="hobby_name" />
+        </property>
+    </class>
+</hibernate-mapping>
